@@ -1,8 +1,6 @@
 # A Quick Jump Tool for OIers
 由于作者在打开 OJ 等时候懒得动鼠标，就写了这玩意。~~懒是第一生产力~~
 
-暂时只有 Windows 的脚本，Linux 用户请耗子尾汁（）
-
 `pip install -r requirements.txt` 以安装需要的库。
 
 使用方法：
