@@ -1,8 +1,10 @@
 import sys
 import getopt
+import urllib
 import luogu
 import uoj
 import loj
+import codeforces
 
 
 def show_help():
@@ -29,7 +31,7 @@ try:
         if i[0] == "-p" or i[0] == "--problem_id":
             opts["-p"] = i[1]
         if i[0] == "-s" or i[0] == "--search":
-            opts["-s"] = i[1]
+            opts["-s"] = urllib.parse.quote(i[1])
 except SystemExit:
     exit(0)
 except:
@@ -37,16 +39,18 @@ except:
     exit(0)
 
 online_judges = {
-    "luogu": luogu, 
-    "lg": luogu, 
-    "loj": loj, 
-    "l": loj, 
+    "luogu": luogu,
+    "lg": luogu,
+    "loj": loj,
+    "l": loj,
     "uoj": uoj.Uoj("uoj.ac"),
     "u": uoj.Uoj("uoj.ac"),
     "bzoj": uoj.Uoj("darkbzoj.tk"),
     "darkbzoj": uoj.Uoj("darkbzoj.tk"),
     "bz": uoj.Uoj("darkbzoj.tk"),
     "db": uoj.Uoj("darkbzoj.tk"),
+    "codeforces": codeforces,
+    "cf": codeforces,
 }
 if not oj in online_judges:
     raise Exception("OJ not supported")

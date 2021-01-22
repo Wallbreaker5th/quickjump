@@ -16,6 +16,7 @@
     - [x] Libre OJ（`loj`/`l`）
     - [x] Universal OJ（`uoj`/`u`）
     - [x] 黑暗爆炸 OJ（`darkbzoj`/`bzoj`/`bz`/`db`）
+    - [x] Codeforces（`codeforce`/`cf`）
 - `wa sth`
   - 使用 Wolfram Alpha 搜索特定内容
   - 例：`wa "sum i, i=0 to n"`
