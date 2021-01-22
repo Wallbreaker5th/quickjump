@@ -37,26 +37,28 @@ class Uoj:
             info["空间限制"] = "%s %s" % (
                 re_memory_limit.group(1), re_memory_limit.group(2))
         return info
+
     def get_search_info(self, key: str) -> dict:
         """Search `key` and get information from the results"""
         url = "https://%s/problems?search=%s" % (self.domain, key)
         r = requests.get(url)
         html = r.content.decode('utf-8')
         field_names = ["题目编号", "题目名称"]
-        re_result=re.findall("<a href=\"/problem/(\\d+)\">(.+?)</a>",html)
-        table=[[i[0],i[1]] for i in re_result]
-        return (field_names,table)
+        re_result = re.findall("<a href=\"/problem/(\\d+)\">(.+?)</a>", html)
+        table = [[i[0], i[1]] for i in re_result]
+        return (field_names, table)
 
     def handle(self, opt: list):
         """Handle the arguments passed in."""
         if opt['-b']:
             if '-p' in opt:
                 p: str = opt['-p']
-                webbrowser.open('https://uoj.ac/problem/'+p)
+                webbrowser.open('https://%s/problem/' % self.domain+p)
                 exit(0)
             if '-s' in opt:
                 key: str = opt['-s']
-                webbrowser.open('https://uoj.ac/problems?search=%s' % key)
+                webbrowser.open('https://%s/problems?search=%s' %
+                                (self.domain, key))
                 exit(0)
         else:
             if "-p" in opt:
